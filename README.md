@@ -103,6 +103,13 @@ Quedando de la siguiente manera:
 7. Escribimos el comando **wr** y **wr mem** para guardar los cambios.
 8. Repetimos los pasos del 1-7 para los esw2 y esw3.
 
+### ESW 1
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/VTP.png "vtp")
+### ESW 2
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/VTP2.png "vtp")
+### ESW 3
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/VTP3.png "vtp")
+
 ## Confuguracion de la VLAN
 Seguimos los siguientes pasos para configurar la vlan 10(VENTAS) y la vlan 20 (CONTABILIDAD):
 1. Abrimos la consola del ESW1
@@ -123,6 +130,8 @@ En todos los ESW ejecutamos los siguientes comandos para que se puedan compartir
 4. **switchport mode trunk**
 5. **end** 
 6. **wr** y **wr mem** para guardar los cambios.
+
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/compartir.png "vlan")
 
 ## Configuracion de la VPC
  1. Seleccionamos la VPC
@@ -175,14 +184,37 @@ Para configurar las interfaces de las VLAN, seguimos los siguientes pasos:
 ![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Config1.png "ConfigR")
 
  
+ ## Configuracion del CHannel group
+
+ Para configurar los group channel, debemos hacerlo de ambos lados. por lo que debemos ejecutar los siguientes comandos desde la consola de ambos ESW:
+
+ 1. **Conf t**
+ 2. **int range f#/# - #**, el rango de interfaces salientes del ESW al ESW que nos conectamos para el grupo.
+ 3. **channel-group # mode on**, seleccionamos el # de grupo que estamos creando, en ambas direcciones debe de ser el mismo.
+ 4.**end**
+ 5.**wr** y **wr mem** para guardar los cambios.
+
+ ### GRUPO 1
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/1g1.png "grup1")
+
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/2g1.png "grup12")
+
+ ### GRUPO 2
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/1g2.png "grup2")
+
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/3g23.png "grup21")
+
+ ### GRUPO 3 
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/2g3.png "grup3")
+
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/3g23.png "grup31")
+
 ### PING DESDE VPC1
  Para comprobar que existe comunicación desde la VPC1 con el resto de maquinas, se hara uso del comando **ping ipnum**, en donde ipnum representa la ip de la maquina a la que se desea comprobar la comunicación. En la imagen adjunta, se muestran las pruebas realizadas. 
 
  Se muestra:
  * Ping a VPC2
  * Ping a VPC3
- * Ping a VPC4
- * Ping a VPC5
  * Ping a VM
 
  ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping1.png "PingV1")
@@ -194,8 +226,6 @@ Para configurar las interfaces de las VLAN, seguimos los siguientes pasos:
  Se muestra:
  * Ping a VPC1
  * Ping a VPC3
- * Ping a VPC4
- * Ping a VPC5
  * Ping a VM
 
  ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping2.png "PingV2")
@@ -206,8 +236,6 @@ Para configurar las interfaces de las VLAN, seguimos los siguientes pasos:
  Se muestra:
  * Ping a VPC1
  * Ping a VPC2
- * Ping a VPC4
- * Ping a VPC5
  * Ping a VM  
 
  ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping3.png "PingV3")
@@ -221,13 +249,19 @@ Para comprobar que existe comunicación desde la VM con el resto de maquinas, se
  * Ping a VPC1
  * Ping a VPC2
  * Ping a VPC3
- * Ping a VPC4
- * Ping a VPC5
  
 ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping6.png "PingVM")
 ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping6B.png "PingVM1")
 ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping6C.png "PingVM2")
 
+## SPANNING TREE
+1. **sh spanning-tree root** desde el esw1 
+![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/spaTreeRoot.png "root")
+
+1. **sh spa block**
+![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/block1.png "bl")
+
+![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/block2.png "bl2")
 
 
 # GLOSARIO
