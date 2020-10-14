@@ -1,0 +1,90 @@
+Oct 13 18:47:58.942 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Oct 13 18:47:58.943 HYPERVISOR: Started on IP = localhost, TCP port = 62185.
+Oct 13 18:47:59.418 HYPERVISOR: exec_cmd: hypervisor version 
+Oct 13 18:47:59.419 HYPERVISOR: exec_cmd: hypervisor working_dir D:\Documentos\Universidad\12. Segundo Semestre\Redes1\Lab\Redes1-Practica4-201503609\Practica4\project-files\dynamips 
+Oct 13 18:47:59.420 GENERAL: working_dir=D:\Documentos\Universidad\12. Segundo Semestre\Redes1\Lab\Redes1-Practica4-201503609\Practica4\project-files\dynamips
+Oct 13 18:47:59.421 HYPERVISOR: exec_cmd: hypervisor working_dir D:\Documentos\Universidad\12. Segundo Semestre\Redes1\Lab\Redes1-Practica4-201503609\Practica4\project-files\dynamips\811460ec-3fd8-4c29-8fb4-b59f9156230e 
+Oct 13 18:47:59.422 GENERAL: working_dir=D:\Documentos\Universidad\12. Segundo Semestre\Redes1\Lab\Redes1-Practica4-201503609\Practica4\project-files\dynamips\811460ec-3fd8-4c29-8fb4-b59f9156230e
+Oct 13 18:47:59.423 HYPERVISOR: exec_cmd: vm create ESW1 2 c3725 
+Oct 13 18:47:59.427 VM: VM ESW1 created.
+Oct 13 18:47:59.429 HYPERVISOR: exec_cmd: vm set_con_tcp_port ESW1 5003 
+Oct 13 18:47:59.430 HYPERVISOR: exec_cmd: c3725 get_mac_addr ESW1 
+Oct 13 18:47:59.431 HYPERVISOR: exec_cmd: vm set_disk0 ESW1 1 
+Oct 13 18:47:59.432 HYPERVISOR: exec_cmd: vm set_exec_area ESW1 64 
+Oct 13 18:47:59.433 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 18:47:59.433 HYPERVISOR: exec_cmd: vm set_idle_pc ESW1 0x60bf8ba0 
+Oct 13 18:47:59.434 HYPERVISOR: exec_cmd: vm set_ios ESW1 C:/Users/Usuario/GNS3/images/IOS/c3725-adventerprisek9-mz124-15.image 
+Oct 13 18:47:59.435 HYPERVISOR: exec_cmd: c3725 set_mac_addr ESW1 c202.08a4.0000 
+Oct 13 18:47:59.435 HYPERVISOR: exec_cmd: vm set_nvram ESW1 256 
+Oct 13 18:47:59.436 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 18:47:59.436 HYPERVISOR: exec_cmd: vm slot_add_binding ESW1 1 0 NM-16ESW 
+Oct 13 18:48:02.008 HYPERVISOR: exec_cmd: nio create_udp udp-86289513-4a46-498d-a848-4fea08d0374d 10024 127.0.0.1 10025 
+Oct 13 18:48:02.266 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 3 udp-86289513-4a46-498d-a848-4fea08d0374d 
+Oct 13 18:48:02.268 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 18:48:02.345 HYPERVISOR: exec_cmd: nio create_udp udp-8722b86a-2001-45ed-8c7f-a1a1e070fb1e 10030 127.0.0.1 10031 
+Oct 13 18:48:02.347 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 4 udp-8722b86a-2001-45ed-8c7f-a1a1e070fb1e 
+Oct 13 18:48:02.348 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 18:48:02.401 HYPERVISOR: exec_cmd: nio create_udp udp-b4ff4a38-989e-4e08-8143-f629204eddb0 10036 127.0.0.1 10037 
+Oct 13 18:48:02.403 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 5 udp-b4ff4a38-989e-4e08-8143-f629204eddb0 
+Oct 13 18:48:02.404 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 18:48:02.456 HYPERVISOR: exec_cmd: nio create_udp udp-b6ecd805-cd71-41c0-8760-68ce3264bdae 10042 127.0.0.1 10043 
+Oct 13 18:48:02.458 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 6 udp-b6ecd805-cd71-41c0-8760-68ce3264bdae 
+Oct 13 18:48:02.459 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 18:48:03.036 HYPERVISOR: exec_cmd: nio create_udp udp-678e7cf6-a6ae-4a8a-9833-13af2dfddd47 10064 127.0.0.1 10065 
+Oct 13 18:48:03.039 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 0 0 udp-678e7cf6-a6ae-4a8a-9833-13af2dfddd47 
+Oct 13 18:48:03.040 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 19:28:48.116 HYPERVISOR: exec_cmd: vm create Ghost 0 c3725 
+Oct 13 19:28:48.118 VM: VM Ghost created.
+Oct 13 19:28:48.119 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/Usuario/GNS3/images/IOS/c3725-adventerprisek9-mz124-15.image 
+Oct 13 19:28:48.120 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Oct 13 19:28:48.120 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost D:\Documentos\Universidad\12. Segundo Semestre\Redes1\Lab\Redes1-Practica4-201503609\Practica4\project-files\dynamips\c3725-adventerprisek9-mz124-15.image-128.ghost 
+Oct 13 19:28:48.121 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Oct 13 19:28:48.135 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Oct 13 19:28:48.135 HYPERVISOR: exec_cmd: vm start Ghost 
+Oct 13 19:28:48.821 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Oct 13 19:28:48.822 HYPERVISOR: exec_cmd: vm stop Ghost 
+Oct 13 19:28:49.027 VM: VM Ghost shutdown.
+Oct 13 19:28:49.028 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Oct 13 19:28:49.029 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Oct 13 19:28:49.029 VM: VM Ghost destroyed.
+Oct 13 19:28:49.044 HYPERVISOR: exec_cmd: vm set_ghost_status ESW1 2 
+Oct 13 19:28:49.044 HYPERVISOR: exec_cmd: vm set_ghost_file ESW1 D:\Documentos\Universidad\12. Segundo Semestre\Redes1\Lab\Redes1-Practica4-201503609\Practica4\project-files\dynamips\c3725-adventerprisek9-mz124-15.image-128.ghost 
+Oct 13 19:28:49.044 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 19:28:49.045 HYPERVISOR: exec_cmd: vm set_config ESW1 configs\i2_startup-config.cfg 
+Oct 13 19:28:49.046 HYPERVISOR: exec_cmd: vm start ESW1 
+Oct 13 19:29:19.401 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 19:29:19.422 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 20:03:20.159 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 20:03:20.160 HYPERVISOR: exec_cmd: vm slot_disable_nio ESW1 0 0 
+Oct 13 20:03:20.178 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding ESW1 0 0 
+Oct 13 20:03:20.180 HYPERVISOR: exec_cmd: nio delete udp-678e7cf6-a6ae-4a8a-9833-13af2dfddd47 
+Oct 13 20:03:26.380 HYPERVISOR: exec_cmd: nio create_udp udp-2c5a3f06-4acb-4d84-92e9-c8c9b2aaadbc 10064 127.0.0.1 10065 
+Oct 13 20:03:26.383 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW1 1 7 udp-2c5a3f06-4acb-4d84-92e9-c8c9b2aaadbc 
+Oct 13 20:03:26.384 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 20:03:26.384 HYPERVISOR: exec_cmd: vm slot_enable_nio ESW1 1 7 
+Oct 13 20:04:50.299 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 20:04:50.317 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 20:09:59.467 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 20:09:59.468 HYPERVISOR: exec_cmd: vm stop ESW1 
+Oct 13 20:09:59.698 VM: VM ESW1 shutdown.
+Oct 13 20:09:59.699 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 21:01:19.173 HYPERVISOR: exec_cmd: vm set_ghost_status ESW1 2 
+Oct 13 21:01:19.174 HYPERVISOR: exec_cmd: vm set_ghost_file ESW1 D:\Documentos\Universidad\12. Segundo Semestre\Redes1\Lab\Redes1-Practica4-201503609\Practica4\project-files\dynamips\c3725-adventerprisek9-mz124-15.image-128.ghost 
+Oct 13 21:01:19.175 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 21:01:19.175 HYPERVISOR: exec_cmd: vm set_config ESW1 configs\i2_startup-config.cfg 
+Oct 13 21:01:19.176 HYPERVISOR: exec_cmd: vm start ESW1 
+Oct 13 21:01:49.719 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 21:01:49.731 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 22:54:24.506 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 22:54:24.506 HYPERVISOR: exec_cmd: vm stop ESW1 
+Oct 13 22:54:24.739 VM: VM ESW1 shutdown.
+Oct 13 22:54:24.739 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 22:56:12.514 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 22:56:12.516 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 22:56:13.144 HYPERVISOR: exec_cmd: vm get_status ESW1 
+Oct 13 22:56:13.145 HYPERVISOR: exec_cmd: vm extract_config ESW1 
+Oct 13 22:56:13.147 HYPERVISOR: exec_cmd: vm delete ESW1 
+Oct 13 22:56:13.147 VM: VM ESW1 destroyed.
+Oct 13 22:56:13.158 HYPERVISOR: exec_cmd: hypervisor stop 
+Oct 13 22:56:13.281 HYPERVISOR: Stopped.
+Oct 13 22:56:13.283 GENERAL: reset done.

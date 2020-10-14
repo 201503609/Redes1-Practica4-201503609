@@ -1,0 +1,22 @@
+Oct 13 18:47:58.385 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Oct 13 18:47:58.386 HYPERVISOR: Started on IP = localhost, TCP port = 62182.
+Oct 13 18:47:58.865 HYPERVISOR: exec_cmd: hypervisor version 
+Oct 13 18:47:58.866 HYPERVISOR: exec_cmd: hypervisor working_dir D:\Documentos\Universidad\12. Segundo Semestre\Redes1\Lab\Redes1-Practica4-201503609\Practica4\project-files\dynamips 
+Oct 13 18:47:58.867 GENERAL: working_dir=D:\Documentos\Universidad\12. Segundo Semestre\Redes1\Lab\Redes1-Practica4-201503609\Practica4\project-files\dynamips
+Oct 13 18:47:58.868 HYPERVISOR: exec_cmd: ethsw create Switch2 
+Oct 13 18:48:00.693 HYPERVISOR: exec_cmd: nio create_udp udp-59a85261-88c5-403a-b89c-13b637c5131d 10001 127.0.0.1 10000 
+Oct 13 18:48:00.694 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-59a85261-88c5-403a-b89c-13b637c5131d 
+Oct 13 18:48:00.704 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-59a85261-88c5-403a-b89c-13b637c5131d 10 
+Oct 13 18:48:00.896 HYPERVISOR: exec_cmd: nio create_udp udp-f577a6d0-7573-4133-b8cc-5af42242ba94 10007 127.0.0.1 10006 
+Oct 13 18:48:00.897 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-f577a6d0-7573-4133-b8cc-5af42242ba94 
+Oct 13 18:48:00.923 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-f577a6d0-7573-4133-b8cc-5af42242ba94 20 
+Oct 13 18:48:02.645 HYPERVISOR: exec_cmd: nio create_udp udp-222ba8ed-a879-43c8-bb7c-7331925e8602 10052 127.0.0.1 10053 
+Oct 13 18:48:02.646 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-222ba8ed-a879-43c8-bb7c-7331925e8602 
+Oct 13 18:48:02.649 HYPERVISOR: exec_cmd: ethsw set_dot1q_port Switch2 udp-222ba8ed-a879-43c8-bb7c-7331925e8602 1 
+Oct 13 18:48:02.704 HYPERVISOR: exec_cmd: nio create_udp udp-e00d2b87-0786-4065-b6c1-48a777fc226f 10056 127.0.0.1 10057 
+Oct 13 18:48:02.705 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-e00d2b87-0786-4065-b6c1-48a777fc226f 
+Oct 13 18:48:02.713 HYPERVISOR: exec_cmd: ethsw set_dot1q_port Switch2 udp-e00d2b87-0786-4065-b6c1-48a777fc226f 1 
+Oct 13 22:56:12.868 HYPERVISOR: exec_cmd: ethsw delete Switch2 
+Oct 13 22:56:12.970 HYPERVISOR: exec_cmd: hypervisor stop 
+Oct 13 22:56:13.283 HYPERVISOR: Stopped.
+Oct 13 22:56:13.283 GENERAL: reset done.
