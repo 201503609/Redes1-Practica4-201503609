@@ -6,41 +6,61 @@
 **CARNÉ:** 201503609  
 **CURSO:** REDES DE COMPUTADORAS 1  
 **SECCIÓN:** N  
-**Redes1-Practica2-201503609**
+**Redes1-Practica4-201503609**
 *** 
 
 # MANUAL DE CONFIGURACIÓN
 A continuación se detallan las configuraciones necesarias para administrar de forma correcta la red y proveer comunicación de acuerdo a las necesidades indicadas.
 
 # TOPOLOGÍA
-Se busca crear una red pequeña conformada por 6 computadoras distribuidas en tres departamentos, en la cual los dispositivos este conectados y pueden comunicarse entre sí. La topología de la practica consta de los siguientes elementos:
-* 6 Máquinas
-    * 5 VPC
+Se busca crear una red pequeña conformada por 4 computadoras distribuidas en dos departamentos, en la cual los dispositivos este conectados y pueden comunicarse unicamente entre departamentos. La topología de la practica consta de los siguientes elementos:
+* 4 Máquinas
+    * 3 VPC
     * 1 VM (Configurada con Tiny Linux)
-* 3 Switch
+* 2 Switch
+* 2 EthernetSwitch Router (ESW)
 * 1 Router
 * Cables de red
 
 La conexión sera la siguiente:
 
-* Los switches iran conectados al router
-* La VPC 1 y la VP2 iran conectadas al switch 1
-* La VPC 3, VPC4 y la VPC 5 iran contectadas al switch 2
-* La VM ira conectada al switch 3
+* 1 ESW al router
+* Los ESW conectados entre si
+* La VPC 1 y la VM iran conectadas al switch 1
+* La VPC 2 y la VPC 3 contectadas al switch 2
+* EL switch 1 ira conectado al ESW 2
+* EL switch 2 ira conectado al ESW 3
 
 Las ips asignadas seran las siguientes:
 
+| VLAN | DIRECCION DE RED | PRIMERA DIRECCION ASIGNABLE | ULTIMA DIRECCION ASIGNABLE | DIRECCION DE BROADCAST |
+|:-----|:-----------:|---:| :------:| :------:|
+| 10 | 192.168.19.0/24 | 192.168.19.1 | 192.168.19.254 | 192.168.19.255 |
+| 20 | 192.168.29.0/24 | 192.168.29.1 | 192.168.29.254 | 192.168.29.255| 
+
+
+
 | HOST | CONECTADO A | IP | GATEWAY |
 |:-----|:-----------:|---:| :------:|
-| VPC 1| SWITCH 1    |192.168.13.15 | 192.168.13.1 |
-| VPC 2| SWITCH 1    |192.168.13.16 | 192.168.13.1 |
-| VPC 3| SWITCH 2    |192.168.13.85 | 192.168.13.65 |
-| VPC 4| SWITCH 2    |192.168.13.95 | 192.168.13.65 |
-| VPC 5| SWITCH 2    |192.168.13.105| 192.168.13.65 |
-| VM   | SWITCH 3    |192.168.13.130| 192.168.13.129 |
-| SWITCH1 | ROUTER | - | - |
-| SWITCH2 | ROUTER | - | - |
-| SWITCH3 | ROUTER | - | - |
+| VPC 1| SWITCH 1    |192.168.29.10 | 192.168.29.254 |
+| VPC 2| SWITCH 2    |192.168.19.10 | 192.168.19.254 |
+| VPC 3| SWITCH 2    |192.168.29.15| 192.168.29.254 |
+| VM   | SWITCH 1    |192.168.19.15| 192.168.19.254 |
+
+
+| HOST | CONECTADO A | INTERFAZ A| INTERFAZ B |
+|:-----|:-----------:|---:| :------:|
+| SWITCH1 | ESW 2 | e1 | f1/5 |
+| SWITCH1 | ESW 2 | e2 | f1/6 |
+| SWITCH2 | ESW 3 | e1 | f1/3 |
+| SWITCH2 | ESW 3 | e2 | f1/4 |
+| ESW 1 | ROUTER | f0/0 | f0/0 |
+| ESW 1 | ESW 2 | f1/3 | f1/3 |
+| ESW 1 | ESW 2 | f1/4 | f1/4 |
+| ESW 1 | ESW 3 | f1/5 | f1/5 |
+| ESW 1 | ESW 3 | f1/6 | f1/6 |
+| ESW 2 | ESW 3 | f1/1 | f1/1 |
+| ESW 2 | ESW 3 | f1/2 | f1/2 |
 
 
 MASCARA DE RED:
@@ -50,53 +70,76 @@ MASCARA DE RED:
 
 
 ROUTER:
-| INTERFAZ | IP | BROADCAST |
+| INTERFAZ | VLAN | IP |
 |:----:|:-----------:|:------------: |
-| f0/0     | 192.168.13.1  | 192.168.13.63 |
-| f0/1     | 192.168.13.65 | 192.168.13.127 |
-| f1/0     | 192.168.13.129| 192.168.13.131 |
+| f0/0.10     | 10 | 192.168.19.254|
+| f1/0.20     | 20 | 192.168.29.254|
 
 
 Quedando de la siguiente manera:
 
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Topologia.png "TopoLogia")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Topologia.png "TopoLogia")
 
 # Configuraciones
- ## Confuguracion del Router
-1. Encedemos el router
-![alt text](https://github.com/201503609/Redes1-Practica1-201503609/blob/master/src/EncenderRouter.png "EncenderR")
 
-2. Abrimos su consola
-3. Escribimos el comando **Conf t**
-4. Escribimos el comando **Int f0/0** para configurar la interfaz FastEthernet0/0 del router
-5. Asignamos la ip a la interfaz con el comando **ip address 192.168.1x.1 255.255.255.192** , en donde x representa el digito del carnet a utilizar.
-6. Activamos la interfaz con el comando **no shut**
-7. Escribimos el comando **exit** para salir de la interfaz. 
-8. Repetimos el paso 4,5,6 y 7 para la interfaz f0/1 y la interfaz f1/0
-9. Escribimos el comando **exit** para salir del menu de configuracion.
-10. Validamos que las interfaces esten activas con el comando **Sh i int brief**
-11. Ingresamos el comando **wr** para guardar las configuraciones del router.
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Config1.png "ConfigR")
+## Configuración de los switch
+1. Seleccionamos el switch 1 y abrimos la configuración
+2. Seleccionamos el puerto 1 y lo cambiamos a tipo truncal (dot1q), luego le damos add para que se guarden los cambios.
+3. Seleccionamos el puerto 2 y lo cambiamos a tipo truncal (dot1q), luego le damos add para que se guarden los cambios.
+4. Seleccionamos el puerto 3 y cambiamos la VLAN a 10, luego le damos add para que se guarden los cambios.
+4. Seleccionamos el puerto 4 y cambiamos la VLAN a 20, luego le damos add para que se guarden los cambios.
+5. Repetimos los pasos del 1 - 4 para el switch 2.
 
- ## Configuracion de la VPC
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/SwitchTrunk.png "SwitchTrunk")
+
+
+## Configuración de VTP en los ESW
+1. Abrimos la consola del ESW
+2. Escribimos el comando **Conf t** 
+3. Escribimos el comando **vtp domain redes1_carnet**
+4. Escribimos el comando **vtp password redes1_carnet**
+5. Escribimos el comando **vtp mode server**, para el esw1 utilizamos **server** mientras que para los esw2 y esw3 utilizamos **client**.
+6. Escribimos el comando **end** para salir de la configuración.
+7. Escribimos el comando **wr** y **wr mem** para guardar los cambios.
+8. Repetimos los pasos del 1-7 para los esw2 y esw3.
+
+## Confuguracion de la VLAN
+Seguimos los siguientes pasos para configurar la vlan 10(VENTAS) y la vlan 20 (CONTABILIDAD):
+1. Abrimos la consola del ESW1
+2. Escribimos el comando **Conf t**
+3. Escribimos el comando **vlan #**
+4. Escribimos el comando **name NOMBRE**
+5. Escribimos el comando **end**
+6. Escribimos el comando **wr** y **wr mem** para guardar los cambios.
+
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/ventas.png "ventas")
+
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/contabilidad.png "conta")
+
+En todos los ESW ejecutamos los siguientes comandos para que se puedan compartir la VLAN:
+1. **conf t**
+2. **int range** **f#/#** **-** **#**, seleccionamos todas las interfaces que se esten utilizando del ESW.
+3. **no shut**
+4. **switchport mode trunk**
+5. **end** 
+6. **wr** y **wr mem** para guardar los cambios.
+
+## Configuracion de la VPC
  1. Seleccionamos la VPC
  2. La iniciamos
  ![alt text](https://github.com/201503609/Redes1-Practica1-201503609/blob/master/src/EncenderVPC.png "EncenderV")
 
  3. Ingresamos a la consola.
- 4. Ingresamos el comando **ip numerodeip mascaraRed gateway**, el numero de ip,gateway y mascara de red varian segun sea el asignado para la VPC que se este configurando.
+ 4. Ingresamos el comando **ip numerodeip  gateway #####**, el numero de ip y gateway varian segun sea el asignado para la VPC que se este configurando.
  5. Ingresamos el comando **save** para que se guarden las configuraciones de la VPC
  
 ### Configuracion VPC1
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Config2.png "ConfigV")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Config2.png "ConfigV")
 ### Configuracion VPC2
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Config3.png "ConfigV2")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Config3.png "ConfigV2")
 ### Configuracion VPC3
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Config4.png "ConfigV3")
-### Configuracion VPC4
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Config5.png "ConfigV4")
-### Configuracion VPC5
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Config6.png "ConfigV5")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Config4.png "ConfigV3")
+
 
 ## Configuracion de la VM
 1. Seleccionamos la VM
@@ -109,8 +152,29 @@ Quedando de la siguiente manera:
 8. Escribir la direccion Broadcast que se desea asignar
 9. Seleccionar la opcion de Aplicar.
 
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Config7.png "ConfigM")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Config7.png "ConfigM")
 
+
+## Configuracion del Router
+Para configurar las interfaces de las VLAN, seguimos los siguientes pasos:
+
+1. Encedemos el router
+![alt text](https://github.com/201503609/Redes1-Practica1-201503609/blob/master/src/EncenderRouter.png "EncenderR")
+
+2. Abrimos su consola
+3. Escribimos el comando **Conf t**
+4. Escribimos el comando **Int f0/0.10** para configurar la interfaz FastEthernet0/0 del router para la vlan 10.
+5. **encapsulation dot1q 10**
+6. Asignamos la ip a la interfaz con el comando **ip address 192.168.1x.254 255.255.255.0** , en donde x representa el digito del carnet a utilizar.
+7. Activamos la interfaz con el comando **no shut**
+8. Escribimos el comando **end** para salir de la interfaz. 
+9. Repetimos el paso 4,5,6,7 y 8 para la VLAN 20, a diferencia que de usar el 10, utilizamos el 20.
+11. Validamos que las interfaces esten activas con el comando **Sh i int brief**
+12. Ingresamos el comando **wr** para guardar las configuraciones del router.
+
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Config1.png "ConfigR")
+
+ 
 ### PING DESDE VPC1
  Para comprobar que existe comunicación desde la VPC1 con el resto de maquinas, se hara uso del comando **ping ipnum**, en donde ipnum representa la ip de la maquina a la que se desea comprobar la comunicación. En la imagen adjunta, se muestran las pruebas realizadas. 
 
@@ -147,34 +211,6 @@ Quedando de la siguiente manera:
  * Ping a VM  
 
  ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping3.png "PingV3")
-
-### PING DESDE VPC4
-  Para comprobar que existe comunicación desde la VPC4 con el resto de maquinas, se hara uso del comando **ping ipnum**, en donde ipnum representa la ip de la maquina a la que se desea comprobar la comunicación. En la imagen adjunta, se muestran las pruebas realizadas. 
- 
- Se muestra:
- * Ping a VPC1
- * Ping a VPC2
- * Ping a VPC3
- * Ping a VPC5
- * Ping a VM  
-
- ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping4.png "PingV4")
-
-
-### PING DESDE VPC5
-  Para comprobar que existe comunicación desde la VPC5 con el resto de maquinas, se hara uso del comando **ping ipnum**, en donde ipnum representa la ip de la maquina a la que se desea comprobar la comunicación. En la imagen adjunta, se muestran las pruebas realizadas. 
- 
- Se muestra:
- * Ping a VPC1
- * Ping a VPC2
- * Ping a VPC3
- * Ping a VPC4
- * Ping a VM  
-
- ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping5.png "PingV5")
-
-
-
 
 
 ### PING DESDE VM
