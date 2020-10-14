@@ -9,10 +9,9 @@
 **Redes1-Practica4-201503609**
 *** 
 
-# MANUAL DE REPORTES
+# Capturas de paquetes
 A continuación se detalla como capturar paquetes.
 
-# Capturas de paquetes
  ## Capturar paquetes desde la VPC1
 1. La topología debe de estar encendida.
 2. Hacer click derecho sobre el cable que conecta la vpc1 con el switch
