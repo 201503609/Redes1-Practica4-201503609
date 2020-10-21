@@ -256,12 +256,12 @@ Para comprobar que existe comunicación desde la VM con el resto de maquinas, se
 
 ## SPANNING TREE
 1. **sh spanning-tree root** desde el esw1 
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/spaTreeRoot.png "root")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/spaTreeRoot.png "root")
 
 1. **sh spa block**
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/block1.png "bl")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/block1.png "bl")
 
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/block2.png "bl2")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/block2.png "bl2")
 
 
 # GLOSARIO
