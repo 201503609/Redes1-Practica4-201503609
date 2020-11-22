@@ -103,10 +103,6 @@ Quedando de la siguiente manera:
 
 ### ESW 1
 ![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/VTP.png "vtp")
-### ESW 2
-![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/VTP2.png "vtp")
-### ESW 3
-![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/VTP3.png "vtp")
 
 ## Confuguracion de la VLAN
 Seguimos los siguientes pasos para configurar la vlan 10(VENTAS) y la vlan 20 (CONTABILIDAD):
@@ -146,20 +142,6 @@ En todos los ESW ejecutamos los siguientes comandos para que se puedan compartir
 ![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Config3.png "ConfigV2")
 ### Configuracion VPC3
 ![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Config4.png "ConfigV3")
-
-
-## Configuracion de la VM
-1. Seleccionamos la VM
-2. La encendemos.
-3. Esta abrira una VM en VMWare, por lo que deberemos de inciar la maquina con Tiny-Linux
-4. Seleccionar Panel de Control
-5. Selecciona la opcion Network
-6. Escribir la ip que se le desea asignar a la VM
-7. Escribir la mascara de red que se desea asignar
-8. Escribir la direccion Broadcast que se desea asignar
-9. Seleccionar la opcion de Aplicar.
-
-![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Config7.png "ConfigM")
 
 
 ## Configuracion del Router
@@ -207,50 +189,10 @@ Para configurar las interfaces de las VLAN, seguimos los siguientes pasos:
 
 ![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/3g23.png "grup31")
 
-### PING DESDE VPC1
- Para comprobar que existe comunicación desde la VPC1 con el resto de maquinas, se hara uso del comando **ping ipnum**, en donde ipnum representa la ip de la maquina a la que se desea comprobar la comunicación. En la imagen adjunta, se muestran las pruebas realizadas. 
+## COMANDOS DE CONFIGURACION DEL ROUTER
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/comandos1.png "grup3123")
 
- Se muestra:
- * Ping a VPC2
- * Ping a VPC3
- * Ping a VM
-
- ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping1.png "PingV1")
-
-
-### PING DESDE VPC2
- Para comprobar que existe comunicación desde la VPC2 con el resto de maquinas, se hara uso del comando **ping ipnum**, en donde ipnum representa la ip de la maquina a la que se desea comprobar la comunicación. En la imagen adjunta, se muestran las pruebas realizadas. 
- 
- Se muestra:
- * Ping a VPC1
- * Ping a VPC3
- * Ping a VM
-
- ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping2.png "PingV2")
-
-### PING DESDE VPC3
-  Para comprobar que existe comunicación desde la VPC3 con el resto de maquinas, se hara uso del comando **ping ipnum**, en donde ipnum representa la ip de la maquina a la que se desea comprobar la comunicación. En la imagen adjunta, se muestran las pruebas realizadas. 
- 
- Se muestra:
- * Ping a VPC1
- * Ping a VPC2
- * Ping a VM  
-
- ![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping3.png "PingV3")
-
-
-### PING DESDE VM
-Para comprobar que existe comunicación desde la VM con el resto de maquinas, se hara uso del comando **ping ipnum**, en donde ipnum representa la ip de la maquina a la que se desea comprobar la comunicación. En la imagen adjunta, se muestran las pruebas realizadas. 
-
- 
- Se muestra:
- * Ping a VPC1
- * Ping a VPC2
- * Ping a VPC3
- 
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping6.png "PingVM")
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping6B.png "PingVM1")
-![alt text](https://github.com/201503609/Redes1-Practica2-201503609/blob/master/src/Ping6C.png "PingVM2")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/comandos2.png "grup3113")
 
 ## SPANNING TREE
 1. **sh spanning-tree root** desde el esw1 
