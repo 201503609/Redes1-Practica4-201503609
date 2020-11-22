@@ -194,18 +194,6 @@ Para configurar las interfaces de las VLAN, seguimos los siguientes pasos:
 
 ![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/comandos2.png "grup3113")
 
-## SPANNING TREE
-1. **sh spanning-tree root** desde el esw1 
-![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/spaTreeRoot.png "root")
-
-
-![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/spa.png "b11")
-
-1. **sh spa block**
-![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/block1.png "bl")
-
-![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/block2.png "bl2")
-
 
 # GLOSARIO
 1. **Topología:** se define como el mapa físico o lógico de una red para intercambiar datos. En otras palabras, es la forma en que está diseñada la red, sea en el plano físico o lógico.
