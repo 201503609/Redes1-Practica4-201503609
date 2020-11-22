@@ -2,11 +2,9 @@
 ## **FACULTAD DE INGENIERIA**
 
 *** 
-**NOMBRE:** DIEGO JOSUE BERRIOS GUTIERREZ  
-**CARNÉ:** 201503609  
 **CURSO:** REDES DE COMPUTADORAS 1  
 **SECCIÓN:** N  
-**Redes1-Practica4-201503609**
+**Redes1-Practica5-Grupo 8**
 *** 
 
 # MANUAL DE CONFIGURACIÓN
@@ -78,7 +76,7 @@ ROUTER:
 
 Quedando de la siguiente manera:
 
-![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Topologia.png "TopoLogia")
+![alt text](https://github.com/201503609/Redes1-Practica4-201503609/blob/master/src/Cliente2.png "TopoLogia")
 
 # Configuraciones
 
